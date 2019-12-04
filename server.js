@@ -15,6 +15,14 @@ function logger(req, res, next) {
   next();
 }
 
+function gateKeeper(req, res, next){
+  if(req.headers.password !== 'mellon'){
+    res.status(401)
+  } else {
+    next()
+  }
+}
+
 // write gatekeeper middleware
 //if pass is not mellon then send status code 401
 
