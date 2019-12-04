@@ -59,6 +59,7 @@ function gateKeeper(req, res, next) {
 // checkRole('admin'), checkRole('agents')
 function checkRole(role) {
   return function(req, res, next) {
+    console.log(req.headers.role)
     if (role && role === req.headers.role) {
       next();
     } else {
